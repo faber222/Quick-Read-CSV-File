@@ -21,7 +21,7 @@ bool operator<(const index &d1, const index &d2) {
 
 arvore<index> indexacao;
 
-int main(int argc, char *argv[]) {
+void indexar_dados(string nome_arq, string coluna_escolhida) {
   string leitura;
   string coluna;
   string dado_index;
@@ -31,17 +31,16 @@ int main(int argc, char *argv[]) {
   int posicao = 1;
   index referencia;
 
-  ifstream arquivo(argv[1]);
+  ifstream arquivo(nome_arq);
   if (!arquivo.is_open()) {
     cout << "ARQUIVO INVALIDO OU INEXISTENTE" << endl;
-    return 0;
+    exit(true);
   }
 
   getline(arquivo, leitura);
   while (true) {
     pos1 = leitura.find_first_not_of(",", pos2);
     pos2 = leitura.find_first_of(",", pos1 + 1);
-
     if (pos1 == string::npos) {
       break;
     }
@@ -49,19 +48,17 @@ int main(int argc, char *argv[]) {
       coluna = leitura.substr(pos1);
       break;
     }
-
     coluna = leitura.substr(pos1, pos2 - pos1);
-
-    if (coluna == argv[2]) {
+    if (coluna == coluna_escolhida) {
       break;
     }
     ver_posicao++;
   }
 
-  if (coluna != argv[2]) {
+  if (coluna != coluna_escolhida) {
     cout << coluna << endl;
     cout << "A COLUNA NAO EXISTE" << endl;
-    return 0;
+    exit(true);
   }
 
   while (getline(arquivo, leitura)) {
@@ -92,3 +89,5 @@ int main(int argc, char *argv[]) {
     }
   }
 }
+
+int main(int argc, char *argv[]) { indexar_dados(argv[1], argv[2]); }
