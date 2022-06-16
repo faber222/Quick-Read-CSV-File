@@ -39,27 +39,25 @@ int main(int argc, char *argv[]) {
 
   getline(arquivo, leitura);
   while (true) {
-    pos1 = leitura.find_first_of(",", pos2);
-    cout << pos1 << "first comma" << endl;
+    pos1 = leitura.find_first_not_of(",", pos2);
     pos2 = leitura.find_first_of(",", pos1 + 1);
-    cout << pos2 << "second comma" << endl;
+
     if (pos1 == string::npos) {
       break;
     }
     if (pos2 == string::npos) {
-      coluna = leitura.substr(pos1 + 1);
-      ver_posicao++;
+      coluna = leitura.substr(pos1);
       break;
     }
-    cout << coluna << " coluna" << endl;
 
-    coluna = leitura.substr(pos2 - pos1);
-    cout << coluna << " coluna" << endl;
-    ver_posicao++;
+    coluna = leitura.substr(pos1, pos2 - pos1);
+
     if (coluna == argv[2]) {
       break;
     }
+    ver_posicao++;
   }
+
   if (coluna != argv[2]) {
     cout << coluna << endl;
     cout << "A COLUNA NAO EXISTE" << endl;
@@ -71,7 +69,7 @@ int main(int argc, char *argv[]) {
     pos2 = 0;
     posicao = 1;
     while (true) {
-      pos1 = leitura.find_first_of(",", pos2);
+      pos1 = leitura.find_first_not_of(",", pos2);
       pos2 = leitura.find_first_of(",", pos1 + 1);
       if (pos1 == string::npos) {
         break;
@@ -83,7 +81,7 @@ int main(int argc, char *argv[]) {
         indexacao.adiciona(referencia);
         break;
       }
-      dado_coluna = leitura.substr(pos2 - pos1);
+      dado_coluna = leitura.substr(pos1, pos2 - pos1);
       if (posicao == ver_posicao) {
         referencia.coluna = dado_coluna;
         referencia.pos_linha = arquivo.tellg();
