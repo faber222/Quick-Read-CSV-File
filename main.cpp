@@ -1,5 +1,10 @@
+#include <obter_linhas.h>
+#include <separa.h>
+#include <structs.h>
+
 #include <fstream>
 #include <iostream>
+#include <list>
 #include <string>
 
 #include "prglib.h"
@@ -7,52 +12,14 @@
 using namespace std;
 using prglib::arvore;
 
-typedef struct {
-  int pos_linha;
-  string coluna;
-} index;
-
 bool operator==(const index &d1, const index &d2) {
-  return d1.pos_linha == d2.pos_linha;
+  return d1.coluna == d2.coluna;
 }
 bool operator<(const index &d1, const index &d2) {
-  return d1.pos_linha < d2.pos_linha;
+  return d1.coluna < d2.coluna;
 }
 
 arvore<index> indexacao;
-
-string separa(const string &texto, auto sep, string coluna, int &posicao) {
-  int x = 0;
-  string memoria;
-  while (x != string::npos) {
-    int z = texto.find_first_not_of(sep, x);
-    if (z == string::npos) break;
-    x = texto.find(sep, z);
-    memoria = texto.substr(z, x - z);
-    posicao++;
-    if (coluna == memoria) {
-      return memoria;
-      break;
-    }
-  }
-}
-
-string separa_coluna(const string &texto, auto sep, int &posicao) {
-  int x = 0;
-  string memoria;
-  int posicao_comparada = 0;
-  while (x != string::npos) {
-    int z = texto.find_first_not_of(sep, x);
-    if (z == string::npos) break;
-    x = texto.find(sep, z);
-    memoria = texto.substr(z, x - z);
-    posicao_comparada++;
-    if (posicao == posicao_comparada) {
-      return memoria;
-      break;
-    }
-  }
-}
 
 void indexar_dados(string nome_arq, string coluna_escolhida) {
   string leitura;
@@ -91,10 +58,35 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
       break;
     }
   }
-
-  for (auto &x : indexacao) {
-    cout << x.coluna << " " << x.pos_linha << endl;
-  }
+  arquivo.close();
 }
 
-int main(int argc, char *argv[]) { indexar_dados(argv[1], argv[2]); }
+int main(int argc, char *argv[]) {
+  indexar_dados(argv[1], argv[2]);
+  indexacao.balanceia(true);
+
+  index valor_inicial;
+  index valor_final;
+  list<index> linhas;
+  list<string> printar;
+
+  while (true) {
+    while (valor_inicial.coluna.empty()) {
+      cout << "valor1> ";
+      getline(cin, valor_inicial.coluna);
+    }
+    cout << "valor2> ";
+    getline(cin, valor_final.coluna);
+
+    indexacao.obtemIntervalo(linhas, valor_inicial, valor_final);
+
+    printar = obter_linhas(linhas, argv[1]);
+    while (!printar.empty()) {
+      cout << printar.front() << endl;
+      printar.pop_front();
+    }
+    valor_final.coluna.clear();
+    valor_inicial.coluna.clear();
+    linhas.clear();
+  }
+}
