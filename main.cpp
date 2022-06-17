@@ -78,14 +78,20 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
     cout << "A COLUNA NAO EXISTE" << endl;
     exit(true);
   }
-
-  while (getline(arquivo, leitura)) {
-    int posicao = 1;
-    dado_coluna = separa_coluna(leitura, sep, ver_posicao);
-    referencia.coluna = dado_coluna;
-    referencia.pos_linha = arquivo.tellg();
-    indexacao.adiciona(referencia);
+  while (true) {
+    int pos = arquivo.tellg();
+    if (getline(arquivo, leitura)) {
+      int posicao = 1;
+      dado_coluna = separa_coluna(leitura, sep, ver_posicao);
+      referencia.coluna = dado_coluna;
+      referencia.pos_linha = pos;
+      indexacao.adiciona(referencia);
+    } else {
+      arquivo.clear();
+      break;
+    }
   }
+
   for (auto &x : indexacao) {
     cout << x.coluna << " " << x.pos_linha << endl;
   }
