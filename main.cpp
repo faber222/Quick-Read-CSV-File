@@ -26,9 +26,8 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
   string coluna;
   string dado_coluna;
   string sep = ",";
-
-  int ver_posicao = 0;
   index referencia;
+  int ver_posicao = 0;
 
   ifstream arquivo(nome_arq);
 
@@ -36,17 +35,16 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
     cout << "ARQUIVO INVALIDO OU INEXISTENTE" << endl;
     exit(true);
   }
-
   getline(arquivo, leitura);
-
   coluna = separa(leitura, sep, coluna_escolhida, ver_posicao);
-
   if (coluna != coluna_escolhida) {
     cout << "A COLUNA NAO EXISTE" << endl;
     exit(true);
   }
+
   while (true) {
     int pos = arquivo.tellg();
+
     if (getline(arquivo, leitura)) {
       int posicao = 1;
       dado_coluna = separa_coluna(leitura, sep, ver_posicao);
@@ -77,9 +75,7 @@ int main(int argc, char *argv[]) {
     }
     cout << "valor2> ";
     getline(cin, valor_final.coluna);
-
     indexacao.obtemIntervalo(linhas, valor_inicial, valor_final);
-
     printar = obter_linhas(linhas, argv[1]);
     while (!printar.empty()) {
       cout << printar.front() << endl;

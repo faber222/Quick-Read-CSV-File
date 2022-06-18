@@ -3,6 +3,7 @@
 string separa(const string &texto, string sep, string coluna, int &posicao) {
   int x = 0;
   string memoria;
+
   while (x != string::npos) {
     int z = texto.find_first_not_of(sep, x);
     if (z == string::npos) break;
@@ -21,6 +22,7 @@ string separa_coluna(const string &texto, string sep, int &posicao) {
   int x = 0;
   string memoria;
   int posicao_comparada = 0;
+
   while (x != string::npos) {
     int z = texto.find_first_not_of(sep, x);
     if (z == string::npos) break;
