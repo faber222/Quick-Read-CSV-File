@@ -34,7 +34,7 @@ void indexar_dados(string nome_arq, string coluna_escolhida,
   string leitura;
   string coluna;
   string dado_coluna;
-  string sep = ";";     // caracter separador usado nas
+  string sep = ",";     // caracter separador usado nas
                         // funcoes separa e separa_coluna
   int ver_posicao = 0;  // usado para saber em qual posicao trabalhar e capturar
                         // do arquivo csv
