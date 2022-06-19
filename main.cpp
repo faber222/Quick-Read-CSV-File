@@ -121,6 +121,7 @@ int main(int argc, char *argv[]) {
     for (auto &x : printar) {  // loop para printar os dados na tela
       cout << x << endl;
     }
+    printar.clear();               // limpa as variaveis para o loop seguinte
     valor_final.coluna.clear();    // limpa as variaveis para o loop seguinte
     valor_inicial.coluna.clear();  // limpa as variaveis para o loop seguinte
     linhas.clear();                // limpa as variaveis para o loop seguinte
