@@ -22,7 +22,7 @@ string separa(const string &texto, string sep, string coluna, int &posicao) {
   return memoria = "falso";  // retorna um valor com nome falso
 }
 
-string separa_coluna(const string &texto, string sep, int posicao) {
+string separa_coluna(const string &texto, string sep, int &posicao) {
   int x = 0;
   string memoria;             // string que armazena o valor da separacao
   int posicao_comparada = 0;  // variavel a ser comparada com posicao
