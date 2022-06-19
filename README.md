@@ -74,10 +74,10 @@ $ git clone https://github.com/FBJ-ISV-2/fbj-isv-2
 $ cd fbj-isv-2
 
 # Install dependencies
-$ g++ main.cpp -I. libs/libprglib.a -o {nome}
+$ g++ main.cpp obter_linhas.cpp separa.cpp -o {nome} -I. libs/libprglib.a 
 
 # Run the project
-$ ./{nome}.out
+$ ./{nome}.out arquivo.csv {coluna}
 
 ```
 
