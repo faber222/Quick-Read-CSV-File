@@ -1,6 +1,8 @@
 #ifndef SEPARA_H
 #define SEPARA_H
 
+/////////////////biblioteca/////////////////
+
 #include <fstream>
 #include <iostream>
 #include <list>
@@ -10,6 +12,8 @@
 
 using namespace std;
 using prglib::arvore;
+
+//////////////declaracao das funcoes/////////////
 
 string separa(const string &texto, string sep, string coluna, int &posicao);
 
