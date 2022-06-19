@@ -29,11 +29,12 @@ arvore<index> indexacao;  // declaracao de uma arvore de struct global
 
 // funcao utilizada para fazer a indexacao dos dados, recebendo o nome do
 // arquivo de argv[1] e o nome da coluna de argv[2]
-void indexar_dados(string nome_arq, string coluna_escolhida) {
+void indexar_dados(string nome_arq, string coluna_escolhida,
+                   index &ultimo_item) {
   string leitura;
   string coluna;
   string dado_coluna;
-  string sep = ",";     // caracter separador usado nas
+  string sep = ";";     // caracter separador usado nas
                         // funcoes separa e separa_coluna
   int ver_posicao = 0;  // usado para saber em qual posicao trabalhar e capturar
                         // do arquivo csv
@@ -57,6 +58,7 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
     exit(true);
   }
   leitura.clear();  // limpa a string leitura para ser usada no proximo loop
+  ultimo_item.coluna.clear();  // limpa a memoria para evitar lixo
 
   while (true) {
     int pos = arquivo.tellg();  // captura a posicao da linha que esta sendo
@@ -69,7 +71,12 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
       referencia.coluna = dado_coluna;  // armazena o valor dentro da struct
       referencia.pos_linha = pos;      // armazena a linha desse valor na struct
       indexacao.adiciona(referencia);  // adiciona referencia na arvore
-    } else {                           // caso não de certo, limpa arquivo
+      // se referencia for maior que ultimo_item, iguala para ter sempre a
+      // ultima maior informacao da indexacao
+      if (referencia.coluna > ultimo_item.coluna) {
+        ultimo_item = referencia;
+      }
+    } else {  // caso não de certo, limpa arquivo
       arquivo.clear();
       break;
     }
@@ -78,10 +85,12 @@ void indexar_dados(string nome_arq, string coluna_escolhida) {
 }
 
 int main(int argc, char *argv[]) {
-  indexar_dados(argv[1], argv[2]);  // chama funcao que armazena os dados
-                                    // indexados na arvore indexacao
-  indexacao.balanceia(true);        // balanceia(true), vai balancear o maximo
-                                    // possivel a arvore
+  index ultimo_valor;
+  indexar_dados(argv[1], argv[2],
+                ultimo_valor);  // chama funcao que armazena os dados
+                                // indexados na arvore indexacao
+  indexacao.balanceia(true);    // balanceia(true), vai balancear o maximo
+                                // possivel a arvore
 
   index valor_inicial;   // definicao de struct para valor1
   index valor_final;     // definicao de struct para valor2
@@ -96,13 +105,20 @@ int main(int argc, char *argv[]) {
     }
     cout << "valor2> ";
     getline(cin, valor_final.coluna);  // captura a linha do terminal
+    if (valor_final.coluna.empty()) {  // se for vazio, declara
+                                       // valor_final = ultimo_valor
+      valor_final.coluna = ultimo_valor.coluna;
+    }
     indexacao.obtemIntervalo(linhas, valor_inicial,
                              valor_final);  // obtem um intervalo de dados da
                                             // arvore e armazena em linhas
     printar =
         obter_linhas(linhas, argv[1]);  // obter_linhas retorna os dados da
                                         // pesquisa de linhas em argv[1]
-    for (auto &x : printar) {           // loop para printar os dados na tela
+    if (printar.empty()) {  // se a lista for fazia, dispara mensagem de evento
+      cout << "Nenhum resultado foi encontrado" << endl;
+    }
+    for (auto &x : printar) {  // loop para printar os dados na tela
       cout << x << endl;
     }
     valor_final.coluna.clear();    // limpa as variaveis para o loop seguinte
