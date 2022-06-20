@@ -6,6 +6,7 @@
 
 ////////////////bibliotecas//////////////////////
 
+#include <cctype>
 #include <fstream>
 #include <iostream>
 #include <list>
@@ -31,6 +32,7 @@ arvore<index> indexacao;  // declaracao de uma arvore de struct global
 // arquivo de argv[1] e o nome da coluna de argv[2]
 void indexar_dados(string nome_arq, string coluna_escolhida,
                    index &ultimo_item) {
+#include <structs.h>
   string leitura;
   string coluna;
   string dado_coluna;
@@ -60,6 +62,8 @@ void indexar_dados(string nome_arq, string coluna_escolhida,
   leitura.clear();  // limpa a string leitura para ser usada no proximo loop
   ultimo_item.coluna.clear();  // limpa a memoria para evitar lixo
 
+  ofstream arq2(coluna_escolhida);  // abre um arquivo em modo de escrita
+  
   while (true) {
     int pos = arquivo.tellg();  // captura a posicao da linha que esta sendo
                                 // lida nesse momento
@@ -69,7 +73,11 @@ void indexar_dados(string nome_arq, string coluna_escolhida,
       // separa_coluna vai retornar o valor da coluna definida em ver_posicao
       dado_coluna = separa_coluna(leitura, sep, ver_posicao);
       referencia.coluna = dado_coluna;  // armazena o valor dentro da struct
-      referencia.pos_linha = pos;      // armazena a linha desse valor na struct
+      referencia.pos_linha = pos;  // armazena a linha desse valor na struct
+
+      // armazena os dados no arq2 separados por virgula
+      arq2 << referencia.coluna << "," << referencia.pos_linha << endl;
+
       indexacao.adiciona(referencia);  // adiciona referencia na arvore
       // se referencia for maior que ultimo_item, iguala para ter sempre a
       // ultima maior informacao da indexacao
@@ -85,12 +93,24 @@ void indexar_dados(string nome_arq, string coluna_escolhida,
 }
 
 int main(int argc, char *argv[]) {
-  index ultimo_valor;
-  indexar_dados(argv[1], argv[2],
-                ultimo_valor);  // chama funcao que armazena os dados
-                                // indexados na arvore indexacao
-  indexacao.balanceia(true);    // balanceia(true), vai balancear o maximo
-                                // possivel a arvore
+  ifstream arq(argv[2]);
+  index ler_arq;         // struct para armazenar os dados de sep_arq
+  index ultimo_valor;    // struct usada para caso valor2 == 0
+  if (arq.is_open()) {   // se existir o arquivo, executa a leitura dele
+    string str_memoria;  // string que armazena os dados do arq
+    string sep = ",";    // caracter separador usado na funcao sep_arquivo
+    while (getline(arq, str_memoria)) {  // captura a primeira linha do arquivo
+      // separa a linha usando o sep e armazena em ler_arq
+      sep_arq(str_memoria, sep, ler_arq);
+      indexacao.adiciona(ler_arq);  // armazena na arvore
+    }
+  } else {
+    indexar_dados(argv[1], argv[2],
+                  ultimo_valor);  // chama funcao que armazena os dados
+                                  // indexados na arvore indexacao
+  }
+  indexacao.balanceia(true);  // balanceia(true), vai balancear o maximo
+                              // possivel a arvore
 
   index valor_inicial;   // definicao de struct para valor1
   index valor_final;     // definicao de struct para valor2
