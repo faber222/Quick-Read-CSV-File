@@ -32,7 +32,7 @@ arvore<index> indexacao;  // declaracao de uma arvore de struct global
 // arquivo de argv[1] e o nome da coluna de argv[2]
 void indexar_dados(string nome_arq, string coluna_escolhida,
                    index &ultimo_item) {
-#include <structs.h>
+
   string leitura;
   string coluna;
   string dado_coluna;
@@ -63,7 +63,7 @@ void indexar_dados(string nome_arq, string coluna_escolhida,
   ultimo_item.coluna.clear();  // limpa a memoria para evitar lixo
 
   ofstream arq2(coluna_escolhida);  // abre um arquivo em modo de escrita
-  
+
   while (true) {
     int pos = arquivo.tellg();  // captura a posicao da linha que esta sendo
                                 // lida nesse momento
@@ -109,6 +109,7 @@ int main(int argc, char *argv[]) {
                   ultimo_valor);  // chama funcao que armazena os dados
                                   // indexados na arvore indexacao
   }
+
   indexacao.balanceia(true);  // balanceia(true), vai balancear o maximo
                               // possivel a arvore
 
