@@ -1,6 +1,6 @@
 ///////////////////referencia//////////////////////
 
-#include <separa.h>
+#include "separa.h"
 
 // funcao usada para separar as virgulas
 list<string> separador(const string &texto, string sep) {

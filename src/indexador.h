@@ -3,7 +3,7 @@
 
 ////////////////referencia////////////////////
 
-#include <separa.h>
+#include "separa.h"
 #include <structs.h>
 
 ///////////////bibliotecas////////////////////

@@ -1,8 +1,8 @@
 ////////////////referencias//////////////////////
 
-#include <indexador.h>
-#include <manipulacao_de_dados.h>
-#include <separa.h>
+#include "indexador.h"
+#include "manipulacao_de_dados.h"
+#include "separa.h"
 
 ////////////////bibliotecas//////////////////////
 
