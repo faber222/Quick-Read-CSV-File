@@ -8,23 +8,23 @@
 <h1 align="center">FBJ-ISV-2</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/faber222/FBJ-ISV-2.git?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/faber222/FBJ-ISV-2.git?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/faber222/FBJ-ISV-2.git?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/faber222/FBJ-ISV-2.git?color=56BEB8">
 
-  <img alt="Github issues" src="https://img.shields.io/github/issues/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="Github issues" src="https://img.shields.io/github/issues/faber222/FBJ-ISV-2.git?color=56BEB8">
 
-  <img alt="Github forks" src="https://img.shields.io/github/forks/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="Github forks" src="https://img.shields.io/github/forks/faber222/FBJ-ISV-2.git?color=56BEB8">
 
-  <img alt="Github stars" src="https://img.shields.io/github/stars/FBJ-ISV-2/fbj-isv-2?color=56BEB8">
+  <img alt="Github stars" src="https://img.shields.io/github/stars/faber222/FBJ-ISV-2.git?color=56BEB8">
 </p>
 
  <h4 align="center"> 
-	🚧  FBJ-ISV-2 🚀 Under construction...  🚧
+	🚧  FBJ-ISV-2 🚀 Finished  🚧
 </h4> 
 
 <hr> -->
@@ -68,13 +68,13 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) in
 
 ```bash
 # Clone this project
-$ git clone https://github.com/FBJ-ISV-2/fbj-isv-2
+$ git clone https://github.com/faber222/FBJ-ISV-2.git
 
 # Access
-$ cd fbj-isv-2
+$ cd FBJ-ISV-2
 
 # Install dependencies
-$ g++ main.cpp obter_linhas.cpp separa.cpp -o {nome} -I. libs/libprglib.a 
+$ g++ *.cpp -o {nome} -I. libs/libprglib.a 
 
 # Run the project
 $ ./{nome}.out arquivo.csv {coluna}
@@ -86,8 +86,8 @@ $ ./{nome}.out arquivo.csv {coluna}
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/FBJ-ISV-2" target="_blank">faber222</a>
-Made with :heart: by <a href="https://github.com/FBJ-ISV-2" target="_blank">IgorSVieira</a>
+Made with :heart: by <a href="https://github.com/faber222" target="_blank">faber222</a>
+Made with :heart: by <a href="https://github.com/IgorSVieira" target="_blank">IgorSVieira</a>
 
 &#xa0;
 

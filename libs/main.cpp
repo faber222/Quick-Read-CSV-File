@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
   arvore<index> indexacao;  // declaracao de uma arvore de struct global
   ifstream arq(argv[2]);    // abre o arquivo em modo leitura
   ifstream arq2(argv[1]);   // abre o arquivo em modo leitura
-  string sep = ";";         // caracter separador usado na funcao sep_arquivo
+  string sep = ",";         // caracter separador usado na funcao sep_arquivo
 
   if (arq.is_open()) {  // se existir o arquivo, executa a leitura dele
     reutilizar_dados(arq, indexacao,
@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
   } else {
     indexar_dados(arq2, argv[2], sep,
                   indexacao);  // chama funcao que armazena os dados
-                               // indexados na arvore indexacao
+                               //  indexados na arvore indexacao
   }
   while (true) {           // loop infinito
     list<string> printar;  // lista de string usada para armazenar o retorno de
