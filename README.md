@@ -14,13 +14,11 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/faber222/FBJ-ISV-2?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/faber222/FBJ-ISV-2?color=56BEB8">
-
  <h4 align="center"> 
 	🚧  FBJ-ISV-2 🚀 Finished 🚧
 </h4> 
 
-<hr> -->
+<hr> 
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
