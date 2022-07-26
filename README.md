@@ -1,21 +1,21 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="FBJ ISV 2" />
+  <img src="./.github/app.gif" alt="Quick-Read-CSV-File" />
 
   &#xa0;
 
 </div>
 
-<h1 align="center">FBJ-ISV-2</h1>
+<h1 align="center">Quick-Read-CSV-File</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/faber222/FBJ-ISV-2?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/faber222/Quick-Read-CSV-File?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/faber222/FBJ-ISV-2?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/faber222/Quick-Read-CSV-File?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/faber222/FBJ-ISV-2?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/faber222/Quick-Read-CSV-File?color=56BEB8">
 
  <h4 align="center"> 
-	🚧  FBJ-ISV-2 🚀 Finished 🚧
+	🚧  Quick-Read-CSV-File 🚀 Finished 🚧
 </h4> 
 
 <hr> 
@@ -27,7 +27,7 @@
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/FBJ-ISV-2" target="_blank">Author</a>
+  <a href="https://github.com/Quick-Read-CSV-File" target="_blank">Author</a>
 </p>
 
 <br>
@@ -59,10 +59,10 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) in
 
 ```bash
 # Clone this project
-$ git clone https://github.com/faber222/FBJ-ISV-2.git
+$ git clone https://github.com/faber222/Quick-Read-CSV-File.git
 
 # Access
-$ cd FBJ-ISV-2
+$ cd Quick-Read-CSV-File
 
 # Accecss
 $ cd src
