@@ -77,7 +77,7 @@ $ cd Quick-Read-CSV-File
 $ g++ *.cpp -o {nome} -I. libs/libprglib.a 
 
 # Run the project
-$ ./{nome}.out arquivo.csv {coluna}
+$ ./{nome} {arquivo.csv} {coluna} {nomeArquivoResultado} {caracterSeparador}
 
 ```
 
