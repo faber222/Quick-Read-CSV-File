@@ -1,0 +1,2 @@
+Media:> 234.000000
+Desvio Padrao:> 946.522852
